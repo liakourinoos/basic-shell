@@ -4,13 +4,13 @@ typedef struct list_node* node_ptr;
 typedef struct process_list* pid_list; //gia ti lista me ta bg processes.
 typedef struct process_list_node * pid_node_ptr;
 typedef struct process_list_node pid_node;
-pid_list pl; //global giati tha elegxoume sti shell prin tin ektelesi kathe entolis an exei teleiwsei kapoia bg entoli na tin kanoume wait.
+extern pid_list pl; //global giati tha elegxoume sti shell prin tin ektelesi kathe entolis an exei teleiwsei kapoia bg entoli na tin kanoume wait.
 
 
 pid_list pid_list_init();
 int pid_list_is_empty(pid_list );
 void pid_list_add(pid_list ,pid_t  );
-void pid_list_destroy(pid_list pl);
+void pid_list_destroy(pid_list );
 void pid_list_remove(pid_list  ,pid_t );
 void check_for_zombies(pid_list );
 void alias_management(head ,char *, char **, int ,int );

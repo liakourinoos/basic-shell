@@ -30,6 +30,9 @@ struct list_head{
     node_ptr L;
 };
 
+//initialize the global variable to have it for all .c files used
+pid_list pl=NULL; 
+
 //xeirismos listas pid's
 pid_list pid_list_init(){
     pid_list h=malloc(sizeof(struct process_list));

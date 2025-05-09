@@ -197,7 +197,7 @@ void shell(){
                     destroy(history); 
                     list_destroy(h);
                     pid_list_destroy(pl);
-                    printf("meta to return, prin to exit.\n");
+                    //printf("meta to return, prin to exit.\n");
                     exit(2); 
                 }
             } 
