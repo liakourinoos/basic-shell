@@ -1,26 +1,27 @@
-OBJS = mysh.o array_handling.o basic_shell.o history.o lists.o
-SOURCE = mysh.c array_handling.c basic_shell.c history.c lists.c
-HEADER = array_handling.h basic_shell.h defines.h history.h lists.h
+OBJS = source/mysh.o source/array_handling.o source/basic_shell.o source/history.o source/lists.o
+SOURCE = source/mysh.c source/array_handling.c source/basic_shell.c source/history.c source/lists.c
+HEADER = includes/array_handling.h includes/basic_shell.h includes/defines.h includes/history.h includes/lists.h
 OUT = mysh
 CC = gcc
-FLAGS = -g -c
-$(OUT) : $(OBJS)
+FLAGS = -g -c -Iincludes
+
+$(OUT):$(OBJS)
 	$(CC) -g $(OBJS) -o $@
 
-mysh.o : mysh.c
-	$(CC) $(FLAGS) mysh.c
+source/mysh.o : source/mysh.c
+	$(CC) $(FLAGS) source/mysh.c -o source/mysh.o
 
-array_handling.o : array_handling.c
-	$(CC) $(FLAGS) array_handling.c
+source/array_handling.o : source/array_handling.c
+	$(CC) $(FLAGS) source/array_handling.c -o source/array_handling.o
 
-basic_shell.o : basic_shell.c
-	$(CC) $(FLAGS) basic_shell.c
+source/basic_shell.o : source/basic_shell.c
+	$(CC) $(FLAGS) source/basic_shell.c -o source/basic_shell.o
 
-history.o : history.c
-	$(CC) $(FLAGS) history.c
+source/history.o : source/history.c
+	$(CC) $(FLAGS) source/history.c -o source/history.o
 
-lists.o : lists.c
-	$(CC) $(FLAGS) lists.c
+source/lists.o : source/lists.c
+	$(CC) $(FLAGS) source/lists.c -o source/lists.o
 
 clean:
 	rm -f $(OBJS) $(OUT)

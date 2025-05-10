@@ -34,7 +34,10 @@ void check_for_wildchars(char **command,int *string_index){
                     temp=(char **) malloc(remaining*sizeof(char *)); //kratame sto temp tis upoloipes lekseis meta apo auti me to wildchar
                     for(j=0;j<remaining;j++) temp[j]=(char *) malloc(MAXSIZE*sizeof(char));
                     k=0;
-                    for(j=i+1;j<*string_index;j++){ strcpy(temp[k++],command[j]);printf("kanw copy ti leksi %s stin temp.\n",temp[k-1]);} //antigrafoume tis ypoloipes lekseis.
+                    for(j=i+1;j<*string_index;j++){ strcpy(temp[k++],command[j]);
+                        //antigrafoume tis ypoloipes lekseis.
+                        // printf("kanw copy ti leksi %s stin temp.\n",temp[k-1]);
+                        } 
                 }
                 for(j=i,k=0;j<MAXSIZE && k<no_of_matches;){ //oso exoume xwro stin protasi kai exoume lekseis na baloume
                     strcpy(command[j++],names.gl_pathv[k++]);
@@ -46,7 +49,7 @@ void check_for_wildchars(char **command,int *string_index){
                 for(j=i;j<MAXSIZE && k<remaining;){
                     strcpy(command[j++],temp[k++]); //bazoume pisw stin arxiki protasi tis ypoloipes lekseis.
                 }
-                for(j=0;j<*string_index;j++) printf("|%s| ",command[j]);
+                // for(j=0;j<*string_index;j++) printf("|%s| ",command[j]);
                 if(remaining>0) {for(k=0;k<remaining;k++) free(temp[k]); free(temp) ;} //free ton xwro pou desmeysame
                 --i; 
             }

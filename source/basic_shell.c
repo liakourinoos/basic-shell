@@ -178,7 +178,10 @@ void shell(){
     do {
         cind=-1; //to bazoume -1 etsi wste na doume an uparxei ontws input kai na ksekinisei apo 0
         printf("in-mysh-now:>");
-        fgets(input, MAXSIZE, stdin); //h fgets exei san teleytaio char to \n,ara sti thesi tou tha baloume to \0
+        if(fgets(input, MAXSIZE, stdin)==NULL){ //h fgets exei san teleytaio char to \n,ara sti thesi tou tha baloume to \0
+            printf("\nEOF received. Exiting...\n");
+            break; //an einai EOF, stamatame to shell
+        }
         input_parse(input,&command,&cind,&indexes_array);
         if(cind!=-1){
             //edw pairnw kathe entoli kai tin ektelw
